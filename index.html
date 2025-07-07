@@ -9,43 +9,92 @@
             rel="stylesheet"
         />
         <style>
+            @import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@700&display=swap");
             body {
-                font-family: "Lato", sans-serif;
-                background-color: #fff5f8;
-                color: #333;
+                font-family: "Montserrat", "Lato", sans-serif;
+                background: linear-gradient(
+                    135deg,
+                    #ffd6ec 0%,
+                    #ffb6e6 50%,
+                    #ffe3fa 100%
+                );
+                color: #b8006e;
                 margin: 0;
                 padding: 0;
+                min-height: 100vh;
+                position: relative;
+                overflow-x: hidden;
             }
             .container {
                 max-width: 1200px;
                 margin: auto;
                 padding: 20px;
+                position: relative;
+                z-index: 2;
             }
             header {
                 text-align: center;
                 margin-bottom: 40px;
+                position: relative;
             }
             header h1 {
-                font-family: "Playfair Display", serif;
-                color: #ff94af;
-                font-size: 3em;
+                font-family: "Pacifico", cursive;
+                color: #ff4fa3;
+                font-size: 3.5em;
                 margin: 0;
+                text-shadow:
+                    0 2px 12px #fff,
+                    0 0 8px #ffb6e6;
+                letter-spacing: 2px;
             }
             header img {
                 border-radius: 50%;
-                width: 150px;
-                height: 150px;
+                width: 160px;
+                height: 160px;
                 object-fit: cover;
                 margin-bottom: 20px;
+                border: 5px solid #ffb6e6;
+                box-shadow:
+                    0 0 30px #ffb6e6,
+                    0 0 10px #fff;
+            }
+            .hyacinth-svg {
+                position: absolute;
+                width: 90px;
+                height: 90px;
+                z-index: 1;
+                opacity: 0.85;
+                pointer-events: none;
+            }
+            .hyacinth-top {
+                top: -30px;
+                left: 10%;
+                transform: rotate(-15deg);
+            }
+            .hyacinth-bottom {
+                bottom: -30px;
+                right: 8%;
+                transform: rotate(10deg);
             }
             section {
                 margin-bottom: 40px;
+                background: rgba(255, 255, 255, 0.7);
+                border-radius: 24px;
+                box-shadow:
+                    0 4px 24px #ffb6e6a0,
+                    0 1.5px 8px #fff6;
+                padding: 32px 24px;
+                position: relative;
+                overflow: hidden;
             }
             section h2 {
-                font-family: "Poppins", sans-serif;
-                color: #ff94af;
-                font-size: 2em;
+                font-family: "Pacifico", cursive;
+                color: #ff4fa3;
+                font-size: 2.2em;
                 margin-bottom: 20px;
+                text-shadow:
+                    0 1px 8px #fff,
+                    0 0 6px #ffb6e6;
             }
             .skills,
             .contact {
@@ -56,69 +105,184 @@
             .skill-item,
             .contact-item {
                 flex: 1 1 calc(33.333% - 40px);
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                background: linear-gradient(120deg, #ffe3fa 60%, #ffd6ec 100%);
+                padding: 24px;
+                border-radius: 16px;
+                box-shadow:
+                    0 2px 12px #ffb6e6a0,
+                    0 1.5px 8px #fff6;
                 text-align: center;
+                border: 2px dashed #ffb6e6;
+                position: relative;
+                transition: transform 0.2s;
+            }
+            .skill-item:hover,
+            .contact-item:hover {
+                transform: scale(1.04) rotate(-2deg);
+                box-shadow:
+                    0 6px 24px #ff4fa3a0,
+                    0 2px 12px #fff6;
+            }
+            .skill-item h3,
+            .contact-item h3 {
+                font-family: "Montserrat", sans-serif;
+                color: #e6007a;
+                margin-bottom: 10px;
+                font-size: 1.3em;
+                letter-spacing: 1px;
             }
             .contact form {
                 display: flex;
                 flex-direction: column;
                 gap: 10px;
+                flex: 1 1 300px;
+                background: none;
+                box-shadow: none;
             }
             .contact form input,
             .contact form textarea {
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
+                padding: 12px;
+                border: 1.5px solid #ffb6e6;
+                border-radius: 8px;
+                font-size: 1em;
+                background: #fff7fa;
+                color: #b8006e;
+                transition: border 0.2s;
+            }
+            .contact form input:focus,
+            .contact form textarea:focus {
+                border: 2px solid #ff4fa3;
+                outline: none;
             }
             .contact form button {
-                padding: 10px;
+                padding: 12px;
                 border: none;
-                border-radius: 4px;
-                background-color: #fadadd;
+                border-radius: 8px;
+                background: linear-gradient(90deg, #ff4fa3 40%, #ffb6e6 100%);
                 color: #fff;
+                font-weight: bold;
+                font-size: 1.1em;
                 cursor: pointer;
-                transition: background-color 0.3s ease;
+                box-shadow: 0 2px 8px #ffb6e6a0;
+                letter-spacing: 1px;
+                transition:
+                    background 0.3s,
+                    transform 0.2s;
             }
             .contact form button:hover {
-                background-color: #f9c6d3;
+                background: linear-gradient(90deg, #ffb6e6 10%, #ff4fa3 90%);
+                transform: scale(1.05);
+            }
+            .glitter {
+                position: absolute;
+                pointer-events: none;
+                width: 100vw;
+                height: 100vh;
+                left: 0;
+                top: 0;
+                z-index: 0;
+                overflow: hidden;
+            }
+            .glitter span {
+                position: absolute;
+                display: block;
+                width: 8px;
+                height: 8px;
+                background: radial-gradient(circle, #fff 60%, #ffb6e6 100%);
+                border-radius: 50%;
+                opacity: 0.7;
+                animation: glitter-move 6s linear infinite;
+            }
+            @keyframes glitter-move {
+                0% {
+                    transform: translateY(0) scale(1);
+                }
+                100% {
+                    transform: translateY(100vh) scale(0.7);
+                }
             }
             footer {
                 text-align: center;
                 margin-top: 40px;
-                color: #999;
+                color: #b8006e;
+                font-family: "Pacifico", cursive;
+                font-size: 1.1em;
+                letter-spacing: 1px;
+                text-shadow:
+                    0 1px 8px #fff,
+                    0 0 6px #ffb6e6;
+            }
+            @media (max-width: 900px) {
+                .skills,
+                .contact {
+                    flex-direction: column;
+                }
+                .skill-item,
+                .contact-item {
+                    flex: 1 1 100%;
+                }
             }
         </style>
     </head>
     <body>
+        <div class="glitter" aria-hidden="true">
+            <span style="left: 10vw; animation-delay: 0s"></span>
+            <span style="left: 30vw; animation-delay: 2s"></span>
+            <span style="left: 50vw; animation-delay: 1s"></span>
+            <span style="left: 70vw; animation-delay: 3s"></span>
+            <span style="left: 90vw; animation-delay: 4s"></span>
+            <span style="left: 20vw; animation-delay: 1.5s"></span>
+            <span style="left: 60vw; animation-delay: 2.5s"></span>
+            <span style="left: 80vw; animation-delay: 0.5s"></span>
+        </div>
         <div class="container">
             <header>
                 <img src="vika-photo.jpg" alt="Vika's Photo" />
                 <h1>Hello, I'm Vika!</h1>
+                <!-- SVG Hyacinth Top -->
+                <svg
+                    class="hyacinth-svg hyacinth-top"
+                    viewBox="0 0 64 64"
+                    fill="none"
+                >
+                    <ellipse cx="32" cy="54" rx="10" ry="6" fill="#b8a3e6" />
+                    <ellipse cx="32" cy="44" rx="8" ry="5" fill="#d1b3ff" />
+                    <ellipse cx="32" cy="34" rx="7" ry="4" fill="#e6cfff" />
+                    <ellipse cx="32" cy="24" rx="6" ry="3.5" fill="#f3e6ff" />
+                    <ellipse cx="32" cy="16" rx="5" ry="3" fill="#fff6ff" />
+                    <ellipse cx="32" cy="8" rx="4" ry="2.5" fill="#e6cfff" />
+                </svg>
             </header>
             <section>
                 <h2>About Me</h2>
                 <p>
-                    Hello! I'm Vika, a bezdelnica with a passion for hz. I have
-                    Brief Professional Background and enjoy Personal Hobbies:
-                    cute game, sleep, eat.
+                    Привет! Я Вика — барби-энтузиастка, обожаю гиацины и
+                    атмосферу cute-игр. Люблю розовый, глиттер, сон и сладости.
+                    Вдохновляюсь Honkai: Star Rail и цветочными мотивами!
                 </p>
             </section>
             <section class="skills">
                 <h2>Skills & Achievements</h2>
                 <div class="skill-item">
-                    <h3>Skill 1</h3>
-                    <p>Description of skill 1.</p>
+                    <h3>Barbie Vibes</h3>
+                    <p>
+                        Создаю атмосферу праздника и красоты вокруг себя. Мастер
+                        розового стиля!
+                    </p>
                 </div>
                 <div class="skill-item">
-                    <h3>Skill 2</h3>
-                    <p>Description of skill 2.</p>
+                    <h3>Hyacinth Collector</h3>
+                    <p>
+                        Знаю всё о гиацинтах из Honkai: Star Rail и могу
+                        украсить ими любой проект.
+                    </p>
                 </div>
                 <div class="skill-item">
-                    <h3>Skill 3</h3>
-                    <p>Description of skill 3.</p>
+                    <h3>Cute Game Pro</h3>
+                    <p>
+                        Побеждаю в милых играх, собираю коллекции и делюсь
+                        радостью!
+                    </p>
                 </div>
             </section>
             <section class="contact">
@@ -131,12 +295,41 @@
                 </form>
                 <div class="contact-item">
                     <h3>Social Media</h3>
-                    <p>Follow me on [Social Media Platforms].</p>
+                    <p>
+                        Follow me on
+                        <a
+                            href="#"
+                            style="color: #ff4fa3; text-decoration: underline"
+                            >Instagram</a
+                        >,
+                        <a
+                            href="#"
+                            style="color: #ff4fa3; text-decoration: underline"
+                            >VK</a
+                        >
+                        и других платформах!
+                    </p>
                 </div>
             </section>
+            <!-- SVG Hyacinth Bottom -->
+            <svg
+                class="hyacinth-svg hyacinth-bottom"
+                viewBox="0 0 64 64"
+                fill="none"
+            >
+                <ellipse cx="32" cy="10" rx="10" ry="6" fill="#b8a3e6" />
+                <ellipse cx="32" cy="20" rx="8" ry="5" fill="#d1b3ff" />
+                <ellipse cx="32" cy="30" rx="7" ry="4" fill="#e6cfff" />
+                <ellipse cx="32" cy="40" rx="6" ry="3.5" fill="#f3e6ff" />
+                <ellipse cx="32" cy="48" rx="5" ry="3" fill="#fff6ff" />
+                <ellipse cx="32" cy="56" rx="4" ry="2.5" fill="#e6cfff" />
+            </svg>
         </div>
         <footer>
-            <p>&copy; 2025 Vika. All rights reserved.</p>
+            <p>
+                &copy; 2025 Vika. All rights reserved. | Hyacinths & Barbie
+                vibes
+            </p>
         </footer>
     </body>
 </html>
