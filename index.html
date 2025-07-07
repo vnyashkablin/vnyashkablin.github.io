@@ -208,12 +208,38 @@
             .glitter span {
                 position: absolute;
                 display: block;
-                width: 8px;
-                height: 8px;
-                background: radial-gradient(circle, #fff 60%, #ffb6e6 100%);
+                width: 18px;
+                height: 18px;
+                background: radial-gradient(circle, #fff 70%, #ffb6e6 100%);
+                border-radius: 50%;
+                opacity: 0.85;
+                animation: glitter-move 7s linear infinite;
+                box-shadow:
+                    0 0 12px 4px #fff8,
+                    0 0 24px 8px #ffb6e6a0;
+            }
+            .glitter span::before,
+            .glitter span::after {
+                content: "";
+                position: absolute;
                 border-radius: 50%;
                 opacity: 0.7;
-                animation: glitter-move 6s linear infinite;
+            }
+            .glitter span::before {
+                width: 8px;
+                height: 8px;
+                left: 5px;
+                top: 2px;
+                background: radial-gradient(circle, #fff 80%, #ffb6e6 100%);
+                filter: blur(1px);
+            }
+            .glitter span::after {
+                width: 4px;
+                height: 4px;
+                left: 10px;
+                top: 10px;
+                background: #fff;
+                filter: blur(0.5px);
             }
             @keyframes glitter-move {
                 0% {
@@ -293,10 +319,11 @@
                     </p>
                 </div>
                 <div class="skill-item">
-                    <h3>Hyacinth Collector</h3>
+                    <h3>Graphic Designer</h3>
                     <p>
-                        Знаю всё о гиацинтах из Honkai: Star Rail и могу
-                        украсить ими любой проект.
+                        Работаю в сфере графического дизайна: создаю стильные
+                        визуалы, фирменные стили, баннеры, обложки и многое
+                        другое. Люблю сочетать эстетику и современные тренды!
                     </p>
                 </div>
                 <div class="skill-item">
@@ -325,19 +352,16 @@
                             title="Telegram"
                             style="margin: 0 8px; vertical-align: middle"
                         >
-                            <svg
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg"
+                                alt="Telegram"
                                 width="28"
                                 height="28"
-                                viewBox="0 0 50 50"
-                                fill="none"
-                                style="vertical-align: middle"
-                            >
-                                <circle cx="25" cy="25" r="25" fill="#b8b4ff" />
-                                <path
-                                    d="M39 13L33.5 38.5C33.5 38.5 32.7 40 31 39.5C29.3 39 25.5 36.5 24 35.5C22.5 34.5 19.5 32.5 20 31C20.5 29.5 29.5 20.5 29.5 20.5C29.5 20.5 30.5 19.5 29 19C27.5 18.5 16.5 25 16.5 25C16.5 25 15 25.5 15 24C15 22.5 15.5 22 15.5 22L37 13C37 13 39 12 39 13Z"
-                                    fill="#fff"
-                                />
-                            </svg>
+                                style="
+                                    vertical-align: middle;
+                                    filter: drop-shadow(0 0 2px #fff6);
+                                "
+                            />
                         </a>
                         <a
                             href="https://t.me/imvivika"
@@ -345,19 +369,16 @@
                             title="Telegram Channel"
                             style="margin: 0 8px; vertical-align: middle"
                         >
-                            <svg
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg"
+                                alt="Telegram Channel"
                                 width="28"
                                 height="28"
-                                viewBox="0 0 50 50"
-                                fill="none"
-                                style="vertical-align: middle"
-                            >
-                                <circle cx="25" cy="25" r="25" fill="#a5b4fc" />
-                                <path
-                                    d="M39 13L33.5 38.5C33.5 38.5 32.7 40 31 39.5C29.3 39 25.5 36.5 24 35.5C22.5 34.5 19.5 32.5 20 31C20.5 29.5 29.5 20.5 29.5 20.5C29.5 20.5 30.5 19.5 29 19C27.5 18.5 16.5 25 16.5 25C16.5 25 15 25.5 15 24C15 22.5 15.5 22 15.5 22L37 13C37 13 39 12 39 13Z"
-                                    fill="#fff"
-                                />
-                            </svg>
+                                style="
+                                    vertical-align: middle;
+                                    filter: drop-shadow(0 0 2px #fff6);
+                                "
+                            />
                         </a>
                         <a
                             href="https://steamcommunity.com/id/imvivika/"
@@ -365,18 +386,16 @@
                             title="Steam"
                             style="margin: 0 8px; vertical-align: middle"
                         >
-                            <svg
+                            <img
+                                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/steam.svg"
+                                alt="Steam"
                                 width="28"
                                 height="28"
-                                viewBox="0 0 50 50"
-                                fill="none"
-                                style="vertical-align: middle"
-                            >
-                                <circle cx="25" cy="25" r="25" fill="#6477d6" />
-                                <circle cx="25" cy="25" r="10" fill="#fff" />
-                                <circle cx="25" cy="25" r="6" fill="#6477d6" />
-                                <circle cx="25" cy="25" r="3" fill="#fff" />
-                            </svg>
+                                style="
+                                    vertical-align: middle;
+                                    filter: drop-shadow(0 0 2px #fff6);
+                                "
+                            />
                         </a>
                     </p>
                 </div>
