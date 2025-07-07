@@ -67,6 +67,22 @@
                 pointer-events: none;
                 filter: drop-shadow(0 0 12px #a5b4fc88);
             }
+            .social-icon {
+                vertical-align: middle;
+                margin: 0 4px;
+                background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+                border-radius: 50%;
+                padding: 3px;
+                box-shadow: 0 0 8px #a18cd155, 0 0 2px #fff6;
+                transition: box-shadow 0.3s, filter 0.3s;
+                /* SVG color filter for purple-pink tint */
+                filter: drop-shadow(0 0 4px #a18cd1aa) brightness(0.85) saturate(1.2);
+            }
+            .social-icon:hover {
+                box-shadow: 0 0 18px #ff4fa3cc, 0 0 8px #fff6;
+                filter: drop-shadow(0 0 8px #ff4fa3cc) brightness(1.1) saturate(1.5);
+                background: linear-gradient(120deg, #fbc2eb 0%, #a18cd1 100%);
+            }
             .hyacinth-top {
                 top: -30px;
                 left: 10%;
@@ -134,7 +150,7 @@
                     0 2px 12px #ffb6e6a0,
                     0 1.5px 8px #fff6;
                 text-align: center;
-                border: 2px dashed #ffb6e6;
+                /* border: 2px dashed #ffb6e6; */
                 position: relative;
                 transition: transform 0.2s;
             }
@@ -195,7 +211,7 @@
                 background: linear-gradient(90deg, #ffb6e6 10%, #ff4fa3 90%);
                 transform: scale(1.05);
             }
-            .glitter {
+            .snowfall {
                 position: absolute;
                 pointer-events: none;
                 width: 100vw;
@@ -205,50 +221,133 @@
                 z-index: 0;
                 overflow: hidden;
             }
-            .glitter span {
+            .snowflake {
                 position: absolute;
-                display: block;
-                width: 18px;
-                height: 18px;
-                background: radial-gradient(circle, #fff 70%, #ffb6e6 100%);
-                border-radius: 50%;
-                opacity: 0.85;
-                animation: glitter-move 7s linear infinite;
-                box-shadow:
-                    0 0 12px 4px #fff8,
-                    0 0 24px 8px #ffb6e6a0;
+                color: #fff;
+                user-select: none;
+                pointer-events: none;
+                font-size: 18px;
+                text-shadow: 0 0 8px #fff, 0 0 16px #ffb6e6aa;
+                opacity: 0.9;
+                will-change: transform, opacity;
+                transition: opacity 0.3s;
             }
-            .glitter span::before,
-            .glitter span::after {
-                content: "";
-                position: absolute;
-                border-radius: 50%;
-                opacity: 0.7;
+            /* Индивидуальные nth-child снежинок больше не нужны, теперь всё через JS */
+
+            @keyframes snowfall1 {
+                0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.9; }
+                90% { opacity: 0.9; }
+                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
             }
-            .glitter span::before {
-                width: 8px;
-                height: 8px;
-                left: 5px;
-                top: 2px;
-                background: radial-gradient(circle, #fff 80%, #ffb6e6 100%);
-                filter: blur(1px);
+            @keyframes snowfall2 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.8; }
+                50% { transform: translateY(50vh) translateX(20px) rotate(180deg); }
+                90% { opacity: 0.8; }
+                100% { transform: translateY(100vh) translateX(-20px) rotate(360deg); opacity: 0; }
             }
-            .glitter span::after {
-                width: 4px;
-                height: 4px;
-                left: 10px;
-                top: 10px;
-                background: #fff;
-                filter: blur(0.5px);
+            @keyframes snowfall3 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.9; }
+                30% { transform: translateY(30vh) translateX(-15px) rotate(120deg); }
+                70% { transform: translateY(70vh) translateX(15px) rotate(240deg); }
+                90% { opacity: 0.9; }
+                100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
             }
-            @keyframes glitter-move {
+            @keyframes snowfall4 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.7; }
+                25% { transform: translateY(25vh) translateX(10px) rotate(90deg); }
+                75% { transform: translateY(75vh) translateX(-10px) rotate(270deg); }
+                90% { opacity: 0.7; }
+                100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
+            }
+            @keyframes snowfall5 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.85; }
+                40% { transform: translateY(40vh) translateX(-25px) rotate(150deg); }
+                80% { transform: translateY(80vh) translateX(25px) rotate(300deg); }
+                90% { opacity: 0.85; }
+                100% { transform: translateY(100vh) translateX(0) rotate(450deg); opacity: 0; }
+            }
+            @keyframes snowfall6 {
+                0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.9; }
+                90% { opacity: 0.9; }
+                100% { transform: translateY(100vh) rotate(180deg); opacity: 0; }
+            }
+            @keyframes snowfall7 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.75; }
+                35% { transform: translateY(35vh) translateX(30px) rotate(140deg); }
+                65% { transform: translateY(65vh) translateX(-30px) rotate(220deg); }
+                90% { opacity: 0.75; }
+                100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
+            }
+            @keyframes snowfall8 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.9; }
+                20% { transform: translateY(20vh) translateX(-10px) rotate(80deg); }
+                60% { transform: translateY(60vh) translateX(10px) rotate(240deg); }
+                90% { opacity: 0.9; }
+                100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
+            }
+            @keyframes snowfall9 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.6; }
+                45% { transform: translateY(45vh) translateX(40px) rotate(200deg); }
+                90% { opacity: 0.6; }
+                100% { transform: translateY(100vh) translateX(-40px) rotate(540deg); opacity: 0; }
+            }
+            @keyframes snowfall10 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.8; }
+                30% { transform: translateY(30vh) translateX(-20px) rotate(110deg); }
+                70% { transform: translateY(70vh) translateX(20px) rotate(250deg); }
+                90% { opacity: 0.8; }
+                100% { transform: translateY(100vh) translateX(0) rotate(360deg); opacity: 0; }
+            }
+            @keyframes snowfall11 {
+                0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.95; }
+                90% { opacity: 0.95; }
+                100% { transform: translateY(100vh) rotate(270deg); opacity: 0; }
+            }
+            @keyframes snowfall12 {
+                0% { transform: translateY(-100px) translateX(0) rotate(0deg); opacity: 0; }
+                10% { opacity: 0.7; }
+                50% { transform: translateY(50vh) translateX(-35px) rotate(180deg); }
+                90% { opacity: 0.7; }
+                100% { transform: translateY(100vh) translateX(35px) rotate(360deg); opacity: 0; }
+            }
+            /* Универсальные keyframes для плавного падения, покачивания и таяния снежинок (используются в JS для генерации индивидуальных анимаций) */
+            @keyframes fall {
                 0% {
-                    transform: translateY(0) scale(1);
+                    transform: translateY(0) translateX(0) rotate(0deg) scale(1);
+                    opacity: 0;
+                }
+                5% {
+                    opacity: 0.8;
+                }
+                80% {
+                    opacity: 0.8;
+                    transform: translateY(80vh) translateX(20px) rotate(180deg) scale(1);
+                }
+                95% {
+                    opacity: 0.2;
+                    transform: translateY(95vh) translateX(-20px) rotate(360deg) scale(0.6);
                 }
                 100% {
-                    transform: translateY(100vh) scale(0.7);
+                    opacity: 0;
+                    transform: translateY(100vh) translateX(0) rotate(540deg) scale(0.3);
                 }
             }
+            @keyframes sway {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(40px); }
+            }
+
             footer {
                 text-align: center;
                 margin-top: 40px;
@@ -273,13 +372,8 @@
         </style>
     </head>
     <body>
-        <div class="glitter" aria-hidden="true">
-            <span style="left: 10vw; animation-delay: 0s"></span>
-            <span style="left: 30vw; animation-delay: 2s"></span>
-            <span style="left: 50vw; animation-delay: 1s"></span>
-            <span style="left: 70vw; animation-delay: 3s"></span>
-            <span style="left: 90vw; animation-delay: 4s"></span>
-            <span style="left: 20vw; animation-delay: 1.5s"></span>
+        <div class="snowfall"></div>
+
             <span style="left: 60vw; animation-delay: 2.5s"></span>
             <span style="left: 80vw; animation-delay: 0.5s"></span>
         </div>
@@ -287,19 +381,6 @@
             <header>
                 <img src="vika-photo.jpg" alt="Vika's Photo" />
                 <h1>Hello, I'm Vika!</h1>
-                <!-- SVG Hyacinth Top -->
-                <svg
-                    class="hyacinth-svg hyacinth-top"
-                    viewBox="0 0 64 64"
-                    fill="none"
-                >
-                    <ellipse cx="32" cy="54" rx="10" ry="6" fill="#b8a3e6" />
-                    <ellipse cx="32" cy="44" rx="8" ry="5" fill="#d1b3ff" />
-                    <ellipse cx="32" cy="34" rx="7" ry="4" fill="#e6cfff" />
-                    <ellipse cx="32" cy="24" rx="6" ry="3.5" fill="#f3e6ff" />
-                    <ellipse cx="32" cy="16" rx="5" ry="3" fill="#fff6ff" />
-                    <ellipse cx="32" cy="8" rx="4" ry="2.5" fill="#e6cfff" />
-                </svg>
             </header>
             <section>
                 <h2>About Me</h2>
@@ -350,69 +431,47 @@
                             href="https://t.me/ivivika"
                             target="_blank"
                             title="Telegram"
-                            style="margin: 0 8px; vertical-align: middle"
+                            style="text-decoration: none; vertical-align: middle"
                         >
                             <img
                                 src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg"
                                 alt="Telegram"
                                 width="28"
                                 height="28"
-                                style="
-                                    vertical-align: middle;
-                                    filter: drop-shadow(0 0 2px #fff6);
-                                "
+                                class="social-icon"
                             />
                         </a>
                         <a
                             href="https://t.me/imvivika"
                             target="_blank"
                             title="Telegram Channel"
-                            style="margin: 0 8px; vertical-align: middle"
+                            style="text-decoration: none; vertical-align: middle"
                         >
                             <img
                                 src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/telegram.svg"
                                 alt="Telegram Channel"
                                 width="28"
                                 height="28"
-                                style="
-                                    vertical-align: middle;
-                                    filter: drop-shadow(0 0 2px #fff6);
-                                "
+                                class="social-icon"
                             />
                         </a>
                         <a
                             href="https://steamcommunity.com/id/imvivika/"
                             target="_blank"
                             title="Steam"
-                            style="margin: 0 8px; vertical-align: middle"
+                            style="text-decoration: none; vertical-align: middle"
                         >
                             <img
                                 src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/steam.svg"
                                 alt="Steam"
                                 width="28"
                                 height="28"
-                                style="
-                                    vertical-align: middle;
-                                    filter: drop-shadow(0 0 2px #fff6);
-                                "
+                                class="social-icon"
                             />
                         </a>
                     </p>
                 </div>
             </section>
-            <!-- SVG Hyacinth Bottom -->
-            <svg
-                class="hyacinth-svg hyacinth-bottom"
-                viewBox="0 0 64 64"
-                fill="none"
-            >
-                <ellipse cx="32" cy="10" rx="10" ry="6" fill="#b8a3e6" />
-                <ellipse cx="32" cy="20" rx="8" ry="5" fill="#d1b3ff" />
-                <ellipse cx="32" cy="30" rx="7" ry="4" fill="#e6cfff" />
-                <ellipse cx="32" cy="40" rx="6" ry="3.5" fill="#f3e6ff" />
-                <ellipse cx="32" cy="48" rx="5" ry="3" fill="#fff6ff" />
-                <ellipse cx="32" cy="56" rx="4" ry="2.5" fill="#e6cfff" />
-            </svg>
         </div>
         <footer>
             <p>
@@ -420,5 +479,91 @@
                 vibes
             </p>
         </footer>
+        <script>
+        // Реалистичные снежинки: SVG, разные размеры, скорость, прозрачность, вращение и таяние
+        const SNOWFLAKE_COUNT = 40;
+        const SVG_SHAPES = [
+          `<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><g stroke="white" stroke-width="1.2"><line x1="10" y1="2" x2="10" y2="18"/><line x1="2" y1="10" x2="18" y2="10"/><line x1="4" y1="4" x2="16" y2="16"/><line x1="16" y1="4" x2="4" y2="16"/></g></svg>`,
+          `<svg width="18" height="18" viewBox="0 0 18 18" fill="none"><g stroke="white" stroke-width="1"><circle cx="9" cy="9" r="4"/><line x1="9" y1="1" x2="9" y2="17"/><line x1="1" y1="9" x2="17" y2="9"/></g></svg>`,
+          `<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><g stroke="white" stroke-width="1"><line x1="8" y1="0" x2="8" y2="16"/><line x1="0" y1="8" x2="16" y2="8"/><line x1="3" y1="3" x2="13" y2="13"/><line x1="13" y1="3" x2="3" y2="13"/></g></svg>`,
+          `<svg width="22" height="22" viewBox="0 0 22 22" fill="none"><g stroke="white" stroke-width="1"><circle cx="11" cy="11" r="2"/><line x1="11" y1="0" x2="11" y2="22"/><line x1="0" y1="11" x2="22" y2="11"/><line x1="4" y1="4" x2="18" y2="18"/><line x1="18" y1="4" x2="4" y2="18"/></g></svg>`
+        ];
+
+        function randomBetween(a, b) {
+          return a + Math.random() * (b - a);
+        }
+
+        function createSnowflake() {
+          const snowflake = document.createElement('div');
+          snowflake.className = 'snowflake';
+          snowflake.innerHTML = SVG_SHAPES[Math.floor(Math.random() * SVG_SHAPES.length)];
+
+          // Случайные параметры
+          const size = randomBetween(14, 36);
+          const left = randomBetween(0, 100);
+          const duration = randomBetween(8, 18);
+          const delay = randomBetween(0, 10);
+          const opacity = randomBetween(0.5, 1);
+          const rotateStart = randomBetween(0, 360);
+          const rotateEnd = rotateStart + randomBetween(180, 720);
+          const sway = randomBetween(10, 40);
+          const meltStart = randomBetween(70, 90); // % пути, когда начнёт таять
+
+          snowflake.style.position = 'absolute';
+          snowflake.style.left = `${left}%`;
+          snowflake.style.width = `${size}px`;
+          snowflake.style.height = `${size}px`;
+          snowflake.style.opacity = opacity;
+          snowflake.style.pointerEvents = 'none';
+          snowflake.style.top = `-${size}px`;
+
+          // Кастомная анимация для каждой снежинки
+          const animName = `fall${Math.random().toString(36).slice(2, 10)}`;
+          const keyframes = `
+          @keyframes ${animName} {
+            0% {
+              transform: translateY(0) translateX(0) rotate(${rotateStart}deg) scale(1);
+              opacity: 0;
+            }
+            5% {
+              opacity: ${opacity};
+            }
+            ${meltStart}% {
+              opacity: ${opacity};
+              transform: translateY(${meltStart}vh) translateX(${sway}px) rotate(${(rotateStart + rotateEnd/2)%360}deg) scale(1);
+            }
+            95% {
+              opacity: 0.2;
+              transform: translateY(95vh) translateX(${-sway}px) rotate(${rotateEnd}deg) scale(0.6);
+            }
+            100% {
+              opacity: 0;
+              transform: translateY(100vh) translateX(0) rotate(${rotateEnd}deg) scale(0.3);
+            }
+          }`;
+          // Вставляем keyframes в <style>
+          const styleSheet = document.createElement('style');
+          styleSheet.innerHTML = keyframes;
+          document.head.appendChild(styleSheet);
+
+          snowflake.style.animation = `${animName} ${duration}s linear ${delay}s infinite`;
+
+          return snowflake;
+        }
+
+        const snowfall = document.querySelector('.snowfall');
+        snowfall.style.pointerEvents = 'none';
+        snowfall.style.position = 'fixed';
+        snowfall.style.top = 0;
+        snowfall.style.left = 0;
+        snowfall.style.width = '100vw';
+        snowfall.style.height = '100vh';
+        snowfall.style.zIndex = 1000;
+        snowfall.style.overflow = 'hidden';
+
+        for (let i = 0; i < SNOWFLAKE_COUNT; i++) {
+          snowfall.appendChild(createSnowflake());
+        }
+        </script>
     </body>
 </html>
